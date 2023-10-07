@@ -17,6 +17,7 @@
                     sum += input[i];
                 }
             }
+            Console.WriteLine(sum);
         }
     }
 }
