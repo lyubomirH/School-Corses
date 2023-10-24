@@ -13,28 +13,28 @@ namespace Project___Hangman
         {
             const string WinScreenText = @"
 ┌───────────────────────────┐
-│ │
-│ WW WW **NN N │
-│ WW WW ii NNN N │
-│ WW WW WW ii N NN N │
-│ WWWWWWW ii N NNN │
-│ WW W ii N NN │
-│ │
-│ Good job! │
-│ You guessed the word! │
+│                           │
+│ WW      WW ** NN   N      │
+│  WW    WW  ii NNN  N      │
+│  WW WW WW  ii N NN N      │
+│   WWWWWWW  ii N  NNN      │
+│    WW W    ii N   NN      │
+│                           │
+│ Good job!                 │
+│ You guessed the word!     │
 └───────────────────────────┘
 ";
             const string LossScreenText = @"
 ┌────────────────────────────────────┐
-│ LLL OOOO SSSS SSSS │
-│ LLL OO OO SS SS SS SS │
-│ LLL OO OO SS SS │
-│ LLL OO OO SSSS SSSS │
-│ LLL OO OO SS SS │
-│ LLLLLLLLLL OO OO SS SS SS SS │
-│ LLLLLLLLL OOOO SSSS SSSS │
-│ |
-│ You were so close. │
+│ LLL           OOOO     SSSS    SSSS│
+│ LLL           OO OO   SS SS   SS SS│
+│ LLL           OO OO       SS     SS│
+│ LLL           OO OO    SSSS   SSSS │
+│ LLL           OO OO   SS     SS    │
+│ LLLLLLLLLL    OO OO   SS  SS SS  SS│
+│ LLLLLLLLL     OOOO     SSSS   SSSS │
+│                                    |
+│ You were so close.                 │
 │ Next time you will guess the word! │
 └────────────────────────────────────┘
 ";
@@ -419,15 +419,15 @@ namespace Project___Hangman
 
             bool inputIsValid;
             
-            void DrawCurrentGameState(bool inputIsInvalid, int incorrectGuess,
+            void DrawCurrentGameState(bool inputIsValid, int incorrectGuess,
                 string guessedWord, List<char> playerUsedLetters)
             {
                 Console.Clear();
                 Console.WriteLine(wrongGuessesFrames[incorrectGuessCount]);
                 Console.WriteLine($"Guess: {guessedWord}");
                 Console.WriteLine($"You have to guess {guessedWord.Length} symbols.");
-                Console.WriteLine($"You following letters are used: {String.Join(", ", playerUsedLetters)}");
-                if(inputIsInvalid)
+                Console.WriteLine($"You following letters are used: {String.Join(" ", playerUsedLetters)}");
+                if(inputIsValid)
                 {
                     Console.WriteLine("You should type only a single character!");
                 }
@@ -524,7 +524,7 @@ namespace Project___Hangman
                 }
                 return false;
             }
-
+            
             while (true)
             {
                 string word = GetRandomWord(words);
