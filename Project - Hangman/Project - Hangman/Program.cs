@@ -389,7 +389,6 @@ namespace Project___Hangman
 
             };
             int incorrectGuessCount = 0;
-            int incorrectGuessConut = 0;
 
             static string[] ReadWordsFromFile()
             {
@@ -417,7 +416,7 @@ namespace Project___Hangman
                 }
             }
 
-            bool inputIsValid;
+            bool inputIsValid ;
             
             void DrawCurrentGameState(bool inputIsValid, int incorrectGuess,
                 string guessedWord, List<char> playerUsedLetters)
@@ -533,7 +532,7 @@ namespace Project___Hangman
                 
                 List<char> playerUsedLetters = new List<char>();
             
-                DrawCurrentGameState(false, incorrectGuessConut, wordToGuess, playerUsedLetters);
+                DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
 
                 PlayGame(word, wordToGuess, incorrectGuessCount, playerUsedLetters);
 
