@@ -4,40 +4,34 @@
     {
         static void Main(string[] args)
         {
-            List<int> nums1 = Console.ReadLine()
-                .Split(" ")
-                .Select(int.Parse)
+            List<double> first = Console.ReadLine()
+                .Split()
+                .Select(double.Parse)
                 .ToList();
-            List<int> nums2 = Console.ReadLine()
-                .Split(" ")
-                .Select(int.Parse)
+            List<double> second = Console.ReadLine()
+                .Split()
+                .Select(double.Parse)
                 .ToList();
-            List<int> resultNums = new List<int>();
-            for (int i = 0; i < Math.Min(nums1.Count, nums2.Count); i++)
+            CombiningTwoeList(first, second);
+        }
+
+        static List<double> CombiningTwoeList(List<double> first, List<double> second)
+        {
+            List<double> totalConcatenate = new List<double>();
+            int forCycleIteration = Math.Max(first.Count, second.Count);
+            for (int i = 0; i < forCycleIteration; i++)
             {
-                resultNums.Add(nums1[i]);
-                resultNums.Add(nums2[i]);
-                if (nums1.Count > nums2.Count)
+                if (first.Count > i)
                 {
-                    resultNums.AddRange(GetRemainingElements(nums1, nums2));
+                    totalConcatenate.Add(first[i]);
                 }
-                else if (nums2.Count > nums1.Count)
+                if (second.Count > i)
                 {
-                    resultNums.AddRange(GetRemainingElements(nums2, nums1));
+                    totalConcatenate.Add(second[i]);
                 }
             }
-            Console.WriteLine(string.Join(" ", resultNums));
+            Console.WriteLine(string.Join(" ", totalConcatenate));
+            return totalConcatenate;
         }
-        static List<int> GetRemainingElements(List<int> longerList, List<int> shorterList)
-               {
-                   List<int> nums = new List<int>();
-                   for (int i = shorterList.Count; i < longerList.Count; i++)
-                   {
-                       nums.Add(longerList[i]);
-                   }
-                   return nums;
-
-               }
-
     }
 }
