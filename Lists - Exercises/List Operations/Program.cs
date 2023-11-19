@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Xml.Linq;
 
 namespace List_Operations
 {
@@ -14,9 +15,19 @@ namespace List_Operations
                 switch (command[0])
                 {
                     case "Remove":
+                        if (list.Contains(1) != false)
+                        {
+                            Console.WriteLine("Invalid index");
+                            break;
+                        }
                         list.RemoveAt(int.Parse(command[1]));
                         break;
                     case "Insert":
+                        if (list.Count < int.Parse(command[1]))
+                        {
+                            list.Insert(list.Count, int.Parse(command[1]));
+                            break;
+                        }
                         list.Insert(int.Parse(command[1]), int.Parse(command[2]));
                         break;
                     case "Add":
@@ -52,8 +63,8 @@ namespace List_Operations
         {
             for(int i = 0; i < index; i++)
             {
-                int numOne = list[1];
-                list.RemoveAt(1);
+                int numOne = list[0];
+                list.RemoveAt(0);
                 list.Insert(list.Count, numOne);
             }
             return list;
@@ -62,8 +73,8 @@ namespace List_Operations
         {
             for (int i = 0; i <= index; i++)
             {
-                int numOne = list[list.Count];
-                list.RemoveAt(1);
+                int numOne = list[list.Count-1];
+                list.RemoveAt(list.Count - 1);
                 list.Insert(0, numOne);
             }
             return list;
