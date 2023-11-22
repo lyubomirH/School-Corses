@@ -66,7 +66,7 @@ namespace Game_of_war
                 CardSuit[] suits = (CardSuit[])Enum.GetValues(typeof(CardSuit));
                 for (int suite = 0; suite < suits.Length; suite++)
                 {
-                    for (int face = 0; face < faces.Length; face++)
+                    for (int face = 0; face < faces.Length -1; face++)
                     {
                         CardFace currentFace = faces[face];
                         CardSuit currentSuit = suits[face];
