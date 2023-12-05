@@ -41,6 +41,7 @@ namespace Game_of_war
             int totalMoves = 0;
             while (!GameHasWinner())
             {
+                
                 Console.ReadLine();
 
                 DrawPlayersCards();
@@ -85,7 +86,7 @@ namespace Game_of_war
                 while (deck.Count > 0)
                 {
                     Card[] firstTwoDrawnCards = deck.Take(2).ToArray();
-
+                    deck.RemoveRange(0, 2);
                     firstPlayerDeck.Enqueue(firstTwoDrawnCards[0]);
                     secondPlayerDeck.Enqueue(firstTwoDrawnCards[1]);
                 }
