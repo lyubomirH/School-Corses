@@ -28,7 +28,7 @@ namespace Game_of_war
 || CONTROLS:                                                                  ||
 || + Press [Enter] to draw a new card until we have a winner.                 ||
 ||                                                                            ||
-|| Have fun!                                                                  ||
+||                         Have fun!                                          ||
 ================================================================================");
             List<Card> deck = GenerateDeck();
             ShuffleDeck(deck);
@@ -69,7 +69,7 @@ namespace Game_of_war
                     for (int face = 0; face < faces.Length -1; face++)
                     {
                         CardFace currentFace = faces[face];
-                        CardSuit currentSuit = suits[face];
+                        CardSuit currentSuit = suits[suite];
 
                         deck.Add(new Card
                         {

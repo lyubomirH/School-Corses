@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Print Even Numbers", "Print Even Numbers.csproj", "{14FD4C02-3B51-4107-BCB5-F7CEF3134B68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14FD4C02-3B51-4107-BCB5-F7CEF3134B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FD4C02-3B51-4107-BCB5-F7CEF3134B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FD4C02-3B51-4107-BCB5-F7CEF3134B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FD4C02-3B51-4107-BCB5-F7CEF3134B68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {677963D8-F403-47B7-9785-86401E0F28D1}
+	EndGlobalSection
+EndGlobal
