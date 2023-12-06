@@ -42,6 +42,7 @@ namespace Game_of_war
             while (!GameHasWinner())
             {
                 
+                
                 Console.ReadLine();
 
                 DrawPlayersCards();
