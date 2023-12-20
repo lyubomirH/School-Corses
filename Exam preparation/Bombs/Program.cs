@@ -60,7 +60,7 @@
                 }
             }
 
-            //if (daturaCounter >= 3 && cherryCounter >= 3 && smokeCounter >= 3)
+            
             if (allBombs)
             {
                 Console.WriteLine("Bene! You have successfully filled the bomb pouch!");
@@ -79,7 +79,7 @@
                 Console.WriteLine($"Bomb Effects: {string.Join(", ", BombQueue)}");
 
             }
-            //Console.WriteLine();
+            
             if (BombCasing.Count == 0)
             {
                 Console.WriteLine("Bomb Casings: empty");
@@ -89,7 +89,7 @@
                 Console.WriteLine($"Bomb Casings: {string.Join(", ", BombCasing)}");
 
             }
-            //Console.WriteLine();
+            
             Console.WriteLine($"Cherry Bombs: {cherryCounter}");
             Console.WriteLine($"Datura Bombs: {daturaCounter}");
             Console.WriteLine($"Smoke Decoy Bombs: {smokeCounter}");

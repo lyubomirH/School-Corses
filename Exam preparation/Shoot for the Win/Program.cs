@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            int[] targets = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int[] targets = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToArray();
 
             string command = "";
 

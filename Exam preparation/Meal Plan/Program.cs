@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> table = new Dictionary<string, int>();
+            Dictionary<string, int> table = new Dictionary<string, int>();   //потърсих го от интернет
             table.Add("salad", 350);
             table.Add("soup", 490);
             table.Add("pasta", 680);
