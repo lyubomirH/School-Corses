@@ -13,10 +13,10 @@ namespace Game_of_war
         public CardSuit Suite { get; set; }
         public override string ToString()
         {
-            return base.ToString();
+            
             int face = (int)Enum.Parse(typeof(CardFace), this.Face.ToString());
             char suite = (char)this.Suite;
-            if (face > 10)
+            if (face < 10)
             {
                 char charFace = this.Face.ToString()[0];
                 return $"{charFace}{suite}";
