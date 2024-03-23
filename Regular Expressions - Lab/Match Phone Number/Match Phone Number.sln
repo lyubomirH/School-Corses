@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Match Phone Number", "Match Phone Number.csproj", "{D449EB9B-C86A-482E-8F65-F12D0A8C2090}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D449EB9B-C86A-482E-8F65-F12D0A8C2090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D449EB9B-C86A-482E-8F65-F12D0A8C2090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D449EB9B-C86A-482E-8F65-F12D0A8C2090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D449EB9B-C86A-482E-8F65-F12D0A8C2090}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1420A6B7-B34D-4593-B010-51F179C87954}
+	EndGlobalSection
+EndGlobal
