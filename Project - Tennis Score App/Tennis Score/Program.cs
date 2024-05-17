@@ -1,4 +1,4 @@
-namespace Tennis_Score_App
+namespace Tennis_Score
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace Tennis_Score_App
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Main());
+            Application.Run(new FormScoreForm());
         }
     }
 }
