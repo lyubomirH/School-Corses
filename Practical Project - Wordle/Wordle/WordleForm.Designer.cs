@@ -424,6 +424,8 @@
             btnHint.TabIndex = 31;
             btnHint.Text = "Hint";
             btnHint.UseVisualStyleBackColor = true;
+            btnHint.Click += GiveHist;
+            btnHint.MouseClick += HintCounterMouseClick;
             // 
             // labelInstructions
             // 
@@ -437,6 +439,7 @@
             // 
             // WordleForm
             // 
+            this.AcceptButton = this.btnSubmit;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
