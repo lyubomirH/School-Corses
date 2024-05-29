@@ -4,7 +4,7 @@ namespace Wordle
 {
     public partial class WordleForm : Form
     {
-        private const string WordsTextFile = @"wordsForWordle.txt";
+        private const string WordsTextFile = @"C:\Users\Mr_Blaza\Desktop\LUYBCHO\хр\gihub\School-Corses\Practical Project - Wordle\Wordle\wordsForWordle.txt";  // wordsForWordle.txt
         private const int RowLength = 5;
         private const string PlayAgainMessage = "Play again?";
         private int previousRow = 0;
@@ -54,7 +54,7 @@ namespace Wordle
 
         private TextBox GetTextBox(int index)
         {
-            string textBoxName = string.Format("textBox{0]", index);
+            string textBoxName = string.Format($"textBox{index}", index);
             return this.Controls[textBoxName] as TextBox;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
