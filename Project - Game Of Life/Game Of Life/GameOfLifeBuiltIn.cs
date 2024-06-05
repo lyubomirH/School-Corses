@@ -8,12 +8,24 @@ namespace Game_Of_Life
 {
     public class GameOfLifeBuiltIn : GameOfLifeBase
     {
-        public GameOfLifeBuiltIn(int x, int y) : base(x, y)    //Class GameOfLifeBuiltln
+        public override void DrawMenuPanel(int windowWidth)
         {
+            base.DrawMenuPanel(windowWidth);
+
+            stringBuilder.AppendLine("[F1] Generate random cell state [F2] Pulsar field");
+            stringBuilder.AppendLine("[Backspace] Start/stop the life [F2] Glider gun field");
+            stringBuilder.AppendLine("[Escape] Start menu             [F4] Living forever field");
+
         }
+        public GameOfLifeBuiltIn(int x, int y) : base(x, y)
+        {
+
+        }
+
         public void GenerateRandomField()
         {
             Random random = new Random();
+
             for (int row = 0; row < CurrentCellGeneration.GetLength(0); row++)
             {
                 for (int col = 0; col < CurrentCellGeneration.GetLength(1); col++)
@@ -22,33 +34,33 @@ namespace Game_Of_Life
                 }
             }
         }
-        public override void DrawMenuPanel(int windowWidth)
-        {
-            base.DrawMenuPanel(windowWidth);
-            stringBuilder.AppendLine("[F1] generate random cell state  [F2] Pulsar field");
-            stringBuilder.AppendLine("[Backspace] Start/stop the life  [F3] Glider gun field");
-            stringBuilder.AppendLine("[Escape] Start menu              [F4] Living forever field");
-        }
+
         private int[,] GetFieldAsTextFile(string fileName)
         {
             string[] textFile = File.ReadAllText(fileName).Split(",").ToArray();
-            int[,] field = new int[CurrentCellGeneration.GetLength(0), CurrentCellGeneration.GetLength(1)];
-            for (int row = 0; row < field.GetLength(0); row++)
+
+            int[,] filed = new int[CurrentCellGeneration.GetLength(0), CurrentCellGeneration.GetLength(1)];
+
+            for (int row = 0; row < textFile.Length; row++)
             {
-                for (int col = 0; col < field.GetLength(1) - 1; col++)
+                string currentRow = textFile[row].Trim();
+
+                for (int col = 0; col < currentRow.Length; col++)
                 {
-                    char[] currentRow = textFile[row].ToCharArray();
                     if (currentRow[col] == 'X')
                     {
-                        field[row, col] = 1;
+                        filed[row, col] = 1;
                     }
                 }
             }
-            return field;
+
+            return filed;
         }
-        public void GenerateField(string fileName)
+
+        public void GenerateFiled(string fileName)
         {
             int[,] field = GetFieldAsTextFile(fileName);
+
             for (int row = 0; row < CurrentCellGeneration.GetLength(0); row++)
             {
                 for (int col = 0; col < CurrentCellGeneration.GetLength(1); col++)

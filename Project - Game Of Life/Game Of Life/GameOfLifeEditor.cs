@@ -14,64 +14,80 @@ namespace Game_Of_Life
         private int cellPositionX = 0;
         private int cellPositionY = 0;
 
-        public GameOfLifeEditor(int x, int y) : base(x, y)    //Class GameOfLifeBuiltln
+        public GameOfLifeEditor(int x, int y) : base(x, y)
         {
+
         }
+
         public override void DrawMenuPanel(int windowWidth)
         {
             base.DrawMenuPanel(windowWidth);
-            stringBuilder.AppendLine("[Arrow keys] to move             [Enter] Clear the board");
-            stringBuilder.AppendLine("[Spacebar] Toggle cell           [Escape] Start menu");
-            stringBuilder.AppendLine("[Backspace] Start/Stop the life");
+
+            stringBuilder.AppendLine("[Arrow keys] to move       [Enter] Clear the board");
+            stringBuilder.AppendLine("[Spacebar] Toggle cell     [Escape] Start menu");
+            stringBuilder.AppendLine("[Backspace] Start/stop the life");
         }
-        public string PlayerMove(ConsoleKeyInfo key, int sizeOfBoard, int windowWidth)
+
+        public string PlayerMove(ConsoleKeyInfo key, int sizeOfBoard, int windoWidth)
         {
-            string genaretionToReturn = "";
+            string generationToReturn = "";
+
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
                     if (cursorPositionX - 2 > 0)
                     {
                         Console.SetCursorPosition(cursorPositionX -= 2, cursorPositionY);
-                        cellPositionY--;
+                        //cellPositionY--;
                     }
                     break;
+
                 case ConsoleKey.RightArrow:
                     if (cursorPositionX + 2 < CurrentCellGeneration.GetLength(1) - 1)
                     {
                         Console.SetCursorPosition(cursorPositionX += 2, cursorPositionY);
-                        cellPositionY++;
+                        //cellPositionY++;
                     }
                     break;
-                case ConsoleKey.DownArrow:
-                    if (cellPositionX < CurrentCellGeneration.GetLength(0) - 1)
-                    {
-                        Console.SetCursorPosition(cursorPositionX, cursorPositionY += 2);
-                        cellPositionX--;
-                    }
-                    break;
+
                 case ConsoleKey.UpArrow:
-                    if (cellPositionX > 0)
+                    if (cursorPositionY - 1 > 0)
                     {
-                        Console.SetCursorPosition(cursorPositionX, cursorPositionY += 2);
-                        cellPositionX++;
+                        Console.SetCursorPosition(cursorPositionX, cursorPositionY -= 1);
+                        //cellPositionY--;
                     }
                     break;
+
+                case ConsoleKey.DownArrow:
+                    if (cursorPositionX + 2 < CurrentCellGeneration.GetLength(1) - 1)
+                    {
+                        Console.SetCursorPosition(cursorPositionX, cursorPositionY += 1);
+                        //cellPositionY++;
+                    }
+                    break;
+
                 case ConsoleKey.Spacebar:
                     ToggleCurrentCellState();
-                    genaretionToReturn = Draw(sizeOfBoard, windowWidth);
+                    generationToReturn = Draw(sizeOfBoard, windoWidth);
                     break;
+
                 case ConsoleKey.Enter:
                     ClearBoard();
-                    genaretionToReturn = Draw(sizeOfBoard, windowWidth);
+                    generationToReturn = Draw(sizeOfBoard, windoWidth);
                     break;
 
                 default:
-                    genaretionToReturn = Draw(sizeOfBoard, windowWidth);
+                    generationToReturn = Draw(sizeOfBoard, windoWidth);
                     break;
             }
-            return genaretionToReturn;
+
+
+            cellPositionY = cursorPositionX / 2;
+            cellPositionX = cursorPositionY;
+
+            return generationToReturn;
         }
+
         private void ToggleCurrentCellState()
         {
             if (CurrentCellGeneration[cellPositionX, cellPositionY] == 1)
@@ -82,9 +98,10 @@ namespace Game_Of_Life
             {
                 CurrentCellGeneration[cellPositionX, cellPositionY] = 1;
             }
-            Console.SetCursorPosition(cursorPositionX, cursorPositionY);
 
+            Console.SetCursorPosition(cursorPositionX, cursorPositionY);
         }
+
         private void ClearBoard()
         {
             for (int row = 0; row < CurrentCellGeneration.GetLength(0); row++)
@@ -94,6 +111,11 @@ namespace Game_Of_Life
                     CurrentCellGeneration[row, col] = 0;
                 }
             }
+        }
+
+        public void UpdateCursorPosition()
+        {
+            Console.SetCursorPosition(cursorPositionX, cursorPositionY);
         }
 
     }
