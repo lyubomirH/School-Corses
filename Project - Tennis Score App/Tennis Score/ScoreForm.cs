@@ -17,7 +17,7 @@ namespace Tennis_Score
         private void OnLand (object sender, EventArgs e)
         {
             FillRankingListView();
-            FillLatestGamesListView();
+            FillLatstGamesListView();
         }
         private void FillRankingListView()
         {
