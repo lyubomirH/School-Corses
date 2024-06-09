@@ -108,7 +108,18 @@ namespace Tennis_Score
                 games.Add(firstPlayer, new List<(string, int)> { secondPlayer });
             }
         }
-        private void VIewProFileButtonClick(object sender, EventArgs e)
+        private void FillPlayerWithPoints((string, int) player)
+        {
+            if (playerWithPoints.ContainsKey(player.Item1))
+            {
+                playerWithPoints[player.Item1] = player.Item2;
+            }
+            else
+            {
+                playerWithPoints.Add(player.Item1, player.Item2);
+            }
+        }
+        private void ViewProFileButtonClick(object sender, EventArgs e)
         {
             ListViewItem selectedRow = this.listViewRanking.SelectedItems[0];
 
