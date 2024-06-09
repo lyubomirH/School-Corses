@@ -4,9 +4,9 @@ namespace Tennis_Score
     {
         private static Dictionary<string, int> playerWithPoints = new()
         {
-            { "R. Federer", 4 },
-            { "G. dimitrov", 5},
-            { "R. Nadal", 5}
+            { ("G. Dimitrov", 3), new List<(string, int)>{("R. Nadal", 2)} },
+            { ("R. Nadal", 3), new List<(string, int)>{("R.Federer", 1)} },
+            { ("G. Dimitrov", 2), new List<(string, int)>{("R. Federer", 3)} }
         };
         private static Dictionary<(string, int), List<(string, int)>> game = new();
         public FormScoreForm()
@@ -16,7 +16,7 @@ namespace Tennis_Score
 
         private void OnLand (object sender, EventArgs e)
         {
-            //FillRankingListView();
+            FillRankingListView();
             //FillLatestGamesListView();
         }
         private void FillRankingListView()
@@ -43,17 +43,55 @@ namespace Tennis_Score
             {
                 foreach(var item in game.Value)
                 {
-                    //FillListView(game.Key, item);
+                    FillListView(game.Key, item);
                 }
             }
         }
+        private void AddNewGAme((string, int) firstPlayer, (string, int) secondPlayer)
+        {
+            //FillGammsData(firstPlayer, secondPlayer);
+
+            //FillPlayerWithPoins(firstPlayer);
+            //FillPlayerWithPoins(secondPlayer);
+
+            FillRankingListView();
+            FillLatstGamesListView();
+        }
         private void FillListView((string, int) firstPlayer, (string, int) secondPlayer)
         {
-            //string winner = GetWinner(firstPlayer, secondPlayer);
+            string winner = GetWinner(firstPlayer, secondPlayer);
 
             ListViewItem rollInLastestGamesListView = new ListViewItem();
-        }
 
+            rollInLastestGamesListView.SubItems[0].Text = firstPlayer.Item1;
+            rollInLastestGamesListView.SubItems.Add(secondPlayer.Item1);
+            rollInLastestGamesListView.SubItems.Add(winner);
+            rollInLastestGamesListView.SubItems.Add($"{firstPlayer.Item2} - {secondPlayer.Item2}");
+
+            this.listViewLastGame.Items.Add(rollInLastestGamesListView);
+        }
+        private string GetWinner((string, int) firstPlayer, (string, int) secondPlayer)
+        {
+            if(firstPlayer.Item2 > secondPlayer.Item2)
+            {
+                return firstPlayer.Item1;
+            }
+            else if(firstPlayer.Item2 < secondPlayer.Item2)
+            {
+                return secondPlayer.Item1;
+            }
+            return "Draw";
+        }
+        private void AddNewGameButtonClick(object sender, EventArgs e)
+        {
+            using (NewGameForm newGameForm = new NewGameForm())
+            {
+                if(newGameForm.ShowDialog() == DialogResult.OK)
+                {
+                    AddNewGame
+                }
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
         }
