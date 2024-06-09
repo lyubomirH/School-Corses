@@ -87,8 +87,8 @@ namespace Tennis_Score
         {
             FillGamesData(firstPlayer, secondPlayer);
 
-            FillPlayerWithPoins(firstPlayer);
-            FillPlayerWithPoins(secondPlayer);
+            FillPlayerWithPoints(firstPlayer);
+            FillPlayerWithPoints(secondPlayer);
 
             FillRankingListView();
             FillLatstGamesListView();
