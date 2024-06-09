@@ -17,6 +17,23 @@ namespace Tennis_Score
             InitializeComponent();
         }
 
+        public (string, int) FirstPlayer { get; set; }
+        public (string, int) SecondPlayer { get; set; }
+        private void ButtonSaveGameClick(object sender, EventArgs e)
+        {
+            string firstPlayerName = textBoxFirstPlayerName.Text.Trim();
+            int firstPlayerPoints = (int)NumericUpDownSecondPlayersPoints.Value;
+            if (!CheckIfInputsAreValid())
+            {
+                ValidateChildren(ValidationConstraints.Enabled);
+                return;
+            }
+            this.DialogResult = DialogResult.OK;
+        }
+        private bool CheckIfInputsAreValid() => !CheckIfPlayerNamesAreEmpty() && !CheckIfPlayerNamesAreSame();
+        private bool CheckIfPlayerNamesAreEmpty() => string.IsNullOrEmpty(this.FirstPlayer.Item1) || string.IsNullOrEmpty(this.SecondPlayer.Item1);
+        //private bool CheckIfPlayerNamesAreSame() =>
+
         private void LABFirstPlayer_Click(object sender, EventArgs e)
         {
 

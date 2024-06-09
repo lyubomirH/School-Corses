@@ -32,13 +32,13 @@
             LABLosses = new Label();
             LABVictories = new Label();
             LABDraw = new Label();
-            listView1 = new ListView();
-            listView2 = new ListView();
-            listView3 = new ListView();
+            listViewVictories = new ListView();
             colVictoriesCompetitior = new ColumnHeader();
             colVictoriesScore = new ColumnHeader();
+            listViewLosses = new ListView();
             colLossesCompetitior = new ColumnHeader();
             colLossesScore = new ColumnHeader();
+            listViewDraw = new ListView();
             colDreawCompetitior = new ColumnHeader();
             colDreawScore = new ColumnHeader();
             SuspendLayout();
@@ -84,36 +84,16 @@
             LABDraw.TabIndex = 3;
             LABDraw.Text = "Draw";
             // 
-            // listView1
+            // listViewVictories
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { colVictoriesCompetitior, colVictoriesScore });
-            listView1.Location = new Point(74, 198);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(406, 201);
-            listView1.TabIndex = 4;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
-            // 
-            // listView2
-            // 
-            listView2.Columns.AddRange(new ColumnHeader[] { colLossesCompetitior, colLossesScore });
-            listView2.Location = new Point(505, 198);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(406, 201);
-            listView2.TabIndex = 5;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
-            // 
-            // listView3
-            // 
-            listView3.Columns.AddRange(new ColumnHeader[] { colDreawCompetitior, colDreawScore });
-            listView3.Location = new Point(940, 198);
-            listView3.Name = "listView3";
-            listView3.Size = new Size(406, 201);
-            listView3.TabIndex = 6;
-            listView3.UseCompatibleStateImageBehavior = false;
-            listView3.View = View.Details;
+            listViewVictories.Columns.AddRange(new ColumnHeader[] { colVictoriesCompetitior, colVictoriesScore });
+            listViewVictories.Location = new Point(74, 198);
+            listViewVictories.Name = "listViewVictories";
+            listViewVictories.Size = new Size(406, 201);
+            listViewVictories.TabIndex = 4;
+            listViewVictories.UseCompatibleStateImageBehavior = false;
+            listViewVictories.View = View.Details;
+            listViewVictories.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // colVictoriesCompetitior
             // 
@@ -123,6 +103,16 @@
             // 
             colVictoriesScore.Text = "Score";
             // 
+            // listViewLosses
+            // 
+            listViewLosses.Columns.AddRange(new ColumnHeader[] { colLossesCompetitior, colLossesScore });
+            listViewLosses.Location = new Point(505, 198);
+            listViewLosses.Name = "listViewLosses";
+            listViewLosses.Size = new Size(406, 201);
+            listViewLosses.TabIndex = 5;
+            listViewLosses.UseCompatibleStateImageBehavior = false;
+            listViewLosses.View = View.Details;
+            // 
             // colLossesCompetitior
             // 
             colLossesCompetitior.Text = "Competitior";
@@ -130,6 +120,16 @@
             // colLossesScore
             // 
             colLossesScore.Text = "Score";
+            // 
+            // listViewDraw
+            // 
+            listViewDraw.Columns.AddRange(new ColumnHeader[] { colDreawCompetitior, colDreawScore });
+            listViewDraw.Location = new Point(940, 198);
+            listViewDraw.Name = "listViewDraw";
+            listViewDraw.Size = new Size(406, 201);
+            listViewDraw.TabIndex = 6;
+            listViewDraw.UseCompatibleStateImageBehavior = false;
+            listViewDraw.View = View.Details;
             // 
             // colDreawCompetitior
             // 
@@ -144,9 +144,9 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1413, 557);
-            Controls.Add(listView3);
-            Controls.Add(listView2);
-            Controls.Add(listView1);
+            Controls.Add(listViewDraw);
+            Controls.Add(listViewLosses);
+            Controls.Add(listViewVictories);
             Controls.Add(LABDraw);
             Controls.Add(LABVictories);
             Controls.Add(LABLosses);
@@ -163,9 +163,9 @@
         private Label LABLosses;
         private Label LABVictories;
         private Label LABDraw;
-        private ListView listView1;
-        private ListView listView2;
-        private ListView listView3;
+        private ListView listViewVictories;
+        private ListView listViewLosses;
+        private ListView listViewDraw;
         private ColumnHeader colVictoriesCompetitior;
         private ColumnHeader colVictoriesScore;
         private ColumnHeader colLossesCompetitior;

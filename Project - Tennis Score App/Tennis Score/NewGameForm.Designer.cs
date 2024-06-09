@@ -31,15 +31,15 @@
             LABFirstPlayer = new Label();
             LABSecondPlayer = new Label();
             LABNewGame = new Label();
-            textBox1 = new TextBox();
+            textBoxFirstPlayerName = new TextBox();
             textBox2 = new TextBox();
             LABPointsFP = new Label();
             LABPointsSP = new Label();
-            NUDPointsFP = new NumericUpDown();
+            NumericUpDownSecondPlayersPoints = new NumericUpDown();
             NUDPointsSP = new NumericUpDown();
             LABVS = new Label();
             BUTSave = new Button();
-            ((System.ComponentModel.ISupportInitialize)NUDPointsFP).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NumericUpDownSecondPlayersPoints).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUDPointsSP).BeginInit();
             SuspendLayout();
             // 
@@ -74,12 +74,12 @@
             LABNewGame.TabIndex = 2;
             LABNewGame.Text = "New Game";
             // 
-            // textBox1
+            // textBoxFirstPlayerName
             // 
-            textBox1.Location = new Point(210, 148);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 1;
+            textBoxFirstPlayerName.Location = new Point(210, 148);
+            textBoxFirstPlayerName.Name = "textBoxFirstPlayerName";
+            textBoxFirstPlayerName.Size = new Size(125, 27);
+            textBoxFirstPlayerName.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -108,12 +108,12 @@
             LABPointsSP.TabIndex = 7;
             LABPointsSP.Text = "Points";
             // 
-            // NUDPointsFP
+            // NumericUpDownSecondPlayersPoints
             // 
-            NUDPointsFP.Location = new Point(228, 308);
-            NUDPointsFP.Name = "NUDPointsFP";
-            NUDPointsFP.Size = new Size(39, 27);
-            NUDPointsFP.TabIndex = 9;
+            NumericUpDownSecondPlayersPoints.Location = new Point(228, 308);
+            NumericUpDownSecondPlayersPoints.Name = "NumericUpDownSecondPlayersPoints";
+            NumericUpDownSecondPlayersPoints.Size = new Size(39, 27);
+            NumericUpDownSecondPlayersPoints.TabIndex = 9;
             // 
             // NUDPointsSP
             // 
@@ -151,18 +151,18 @@
             Controls.Add(BUTSave);
             Controls.Add(LABVS);
             Controls.Add(NUDPointsSP);
-            Controls.Add(NUDPointsFP);
+            Controls.Add(NumericUpDownSecondPlayersPoints);
             Controls.Add(LABPointsSP);
             Controls.Add(LABPointsFP);
             Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxFirstPlayerName);
             Controls.Add(LABNewGame);
             Controls.Add(LABSecondPlayer);
             Controls.Add(LABFirstPlayer);
             Name = "NewGameForm";
             Text = "NewGameForm";
             Load += NewGameForm_Load;
-            ((System.ComponentModel.ISupportInitialize)NUDPointsFP).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NumericUpDownSecondPlayersPoints).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUDPointsSP).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -173,11 +173,11 @@
         private Label LABFirstPlayer;
         private Label LABSecondPlayer;
         private Label LABNewGame;
-        private TextBox textBox1;
+        private TextBox textBoxFirstPlayerName;
         private TextBox textBox2;
         private Label LABPointsFP;
         private Label LABPointsSP;
-        private NumericUpDown NUDPointsFP;
+        private NumericUpDown NumericUpDownSecondPlayersPoints;
         private NumericUpDown NUDPointsSP;
         private Label LABVS;
         private Button BUTSave;

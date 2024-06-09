@@ -8,7 +8,7 @@ namespace Tennis_Score
             { ("R. Nadal", 3), new List<(string, int)>{("R.Federer", 1)} },
             { ("G. Dimitrov", 2), new List<(string, int)>{("R. Federer", 3)} }
         };
-        private static Dictionary<(string, int), List<(string, int)>> game = new();
+        private static Dictionary<(string, int), List<(string, int)>> games = new();
         public FormScoreForm()
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace Tennis_Score
         private void OnLand (object sender, EventArgs e)
         {
             FillRankingListView();
-            //FillLatestGamesListView();
+            FillLatestGamesListView();
         }
         private void FillRankingListView()
         {
@@ -39,7 +39,7 @@ namespace Tennis_Score
         private void FillLatstGamesListView()
         {
             this.listViewLastGame.Items.Clear();
-            foreach(var game in game.Reverse())
+            foreach(var game in games.Reverse())
             {
                 foreach(var item in game.Value)
                 {
@@ -47,16 +47,7 @@ namespace Tennis_Score
                 }
             }
         }
-        private void AddNewGAme((string, int) firstPlayer, (string, int) secondPlayer)
-        {
-            //FillGammsData(firstPlayer, secondPlayer);
-
-            //FillPlayerWithPoins(firstPlayer);
-            //FillPlayerWithPoins(secondPlayer);
-
-            FillRankingListView();
-            FillLatstGamesListView();
-        }
+        
         private void FillListView((string, int) firstPlayer, (string, int) secondPlayer)
         {
             string winner = GetWinner(firstPlayer, secondPlayer);
@@ -88,10 +79,50 @@ namespace Tennis_Score
             {
                 if(newGameForm.ShowDialog() == DialogResult.OK)
                 {
-                    AddNewGame
+                    AddNewGame(newGameForm.FirstPlayer, newGameForm.SecondPlayer);
                 }
             }
         }
+        private void AddNewGame((string, int) firstPlayer, (string, int) secondPlayer)
+        {
+            FillGamesData(firstPlayer, secondPlayer);
+
+            FillPlayerWithPoins(firstPlayer);
+            FillPlayerWithPoins(secondPlayer);
+
+            FillRankingListView();
+            FillLatstGamesListView();
+        }
+        private void FillGamesData((string, int) firstPlayer, (string, int) secondPlayer)
+        {
+            if (games.ContainsKey(firstPlayer))
+            {
+                games[firstPlayer].Add(secondPlayer);
+            }
+            else if (games.ContainsKey(secondPlayer))
+            {
+                games[secondPlayer].Add(firstPlayer);
+            }
+            else
+            {
+                games.Add(firstPlayer, new List<(string, int)> { secondPlayer });
+            }
+        }
+        private void VIewProFileButtonClick(object sender, EventArgs e)
+        {
+            ListViewItem selectedRow = this.listViewRanking.SelectedItems[0];
+
+            ListViewSubItem playerNameCell = selectedRow.SubItems[0];
+
+            string playerName = playerNameCell.Text;
+
+            using (PlayerInfoForm playerInfoForm = new PlayerInfoForm(playerName, GetPlayerGames(playerName)))
+            {
+                playerInfoForm.ShowDialog();
+            }
+        }
+        private Dictionary<(string, int), List<(string, int)>> GetPlayerGames(string playerName) => games.Where(x => x.Key.Item1 == playerName).ToDictionary(x => x.Key, x => x.Value.Where(y => y.Item1 == playerName || x.Key.Item1 == playerName).ToList());
+
         private void label2_Click(object sender, EventArgs e)
         {
         }
