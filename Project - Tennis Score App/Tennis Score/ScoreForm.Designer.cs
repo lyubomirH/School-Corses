@@ -1,6 +1,12 @@
-﻿namespace Tennis_Score
+﻿
+using static System.Net.Mime.MediaTypeNames;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using System.Xml.Linq;
+
+namespace TennisScoreApp
 {
-    partial class FormScoreForm
+    partial class MainTennisForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,151 +34,161 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LABName = new Label();
-            LAB = new Label();
-            LABLastGame = new Label();
-            listViewRanking = new ListView();
-            colRankPlayerName = new ColumnHeader();
-            colRankScore = new ColumnHeader();
-            BUTTAddNewGame = new Button();
-            listViewLastGame = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
+            TennisScoreLabel = new Label();
             label1 = new Label();
+            listViewRanking = new ListView();
+            PlayersName = new ColumnHeader();
+            Score = new ColumnHeader();
+            listViewLastestGames = new ListView();
+            firstPlayer = new ColumnHeader();
+            SecondPlayer = new ColumnHeader();
+            Winner = new ColumnHeader();
+            PlayerScore = new ColumnHeader();
+            label2 = new Label();
+            label3 = new Label();
+            AddNewGameButton = new Button();
             SuspendLayout();
             // 
-            // LABName
+            // TennisScoreLabel
             // 
-            LABName.Anchor = AnchorStyles.Top;
-            LABName.AutoSize = true;
-            LABName.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
-            LABName.Location = new Point(654, 44);
-            LABName.Name = "LABName";
-            LABName.Size = new Size(206, 46);
-            LABName.TabIndex = 0;
-            LABName.Text = "Tennis Score";
-            // 
-            // LAB
-            // 
-            LAB.AutoSize = true;
-            LAB.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            LAB.Location = new Point(116, 93);
-            LAB.Name = "LAB";
-            LAB.Size = new Size(117, 38);
-            LAB.TabIndex = 1;
-            LAB.Text = "Ranking";
-            // 
-            // LABLastGame
-            // 
-            LABLastGame.AutoSize = true;
-            LABLastGame.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            LABLastGame.Location = new Point(116, 314);
-            LABLastGame.Name = "LABLastGame";
-            LABLastGame.Size = new Size(137, 38);
-            LABLastGame.TabIndex = 2;
-            LABLastGame.Text = "LastGame";
-            LABLastGame.Click += label2_Click;
-            // 
-            // listViewRanking
-            // 
-            listViewRanking.Columns.AddRange(new ColumnHeader[] { colRankPlayerName, colRankScore });
-            listViewRanking.Location = new Point(116, 134);
-            listViewRanking.Name = "listViewRanking";
-            listViewRanking.Size = new Size(1235, 123);
-            listViewRanking.TabIndex = 3;
-            listViewRanking.UseCompatibleStateImageBehavior = false;
-            listViewRanking.View = View.Details;
-            // 
-            // colRankPlayerName
-            // 
-            colRankPlayerName.Text = "PlayerName";
-            // 
-            // colRankScore
-            // 
-            colRankScore.Text = "Score";
-            // 
-            // BUTTAddNewGame
-            // 
-            BUTTAddNewGame.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            BUTTAddNewGame.Location = new Point(1191, 324);
-            BUTTAddNewGame.Name = "BUTTAddNewGame";
-            BUTTAddNewGame.Size = new Size(160, 37);
-            BUTTAddNewGame.TabIndex = 4;
-            BUTTAddNewGame.Text = "Add New Game";
-            BUTTAddNewGame.UseVisualStyleBackColor = true;
-            BUTTAddNewGame.Click += button1_Click;
-            // 
-            // listViewLastGame
-            // 
-            listViewLastGame.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
-            listViewLastGame.Location = new Point(116, 367);
-            listViewLastGame.Name = "listViewLastGame";
-            listViewLastGame.Size = new Size(1235, 123);
-            listViewLastGame.TabIndex = 5;
-            listViewLastGame.UseCompatibleStateImageBehavior = false;
-            listViewLastGame.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "First Player";
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Second Player";
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Winner";
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Score";
+            TennisScoreLabel.AutoSize = true;
+            TennisScoreLabel.Font = new Font("Unispace", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            TennisScoreLabel.Location = new Point(131, 21);
+            TennisScoreLabel.Name = "TennisScoreLabel";
+            TennisScoreLabel.Size = new Size(373, 58);
+            TennisScoreLabel.TabIndex = 0;
+            TennisScoreLabel.Text = "Tennis Score";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(116, 260);
+            label1.Font = new Font("Unispace", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(46, 70);
             label1.Name = "label1";
-            label1.Size = new Size(476, 20);
-            label1.TabIndex = 6;
-            label1.Text = "*click on a player's name to see more infoemation about their matches";
+            label1.Size = new Size(94, 23);
+            label1.TabIndex = 1;
+            label1.Text = "Ranking";
             // 
-            // FormScoreForm
+            // listViewRanking
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            listViewRanking.BackColor = Color.Bisque;
+            listViewRanking.Columns.AddRange(new ColumnHeader[] { PlayersName, Score });
+            listViewRanking.Location = new Point(46, 93);
+            listViewRanking.Margin = new Padding(3, 2, 3, 2);
+            listViewRanking.Name = "listViewRanking";
+            listViewRanking.Size = new Size(589, 92);
+            listViewRanking.TabIndex = 2;
+            listViewRanking.UseCompatibleStateImageBehavior = false;
+            listViewRanking.View = View.Details;
+            listViewRanking.Click += ViewProfileButtonClick;
+            // 
+            // PlayersName
+            // 
+            PlayersName.Text = "Player Name";
+            PlayersName.Width = 340;
+            // 
+            // Score
+            // 
+            Score.Text = "Score";
+            Score.Width = 300;
+            // 
+            // listViewLastestGames
+            // 
+            listViewLastestGames.BackColor = Color.Bisque;
+            listViewLastestGames.Columns.AddRange(new ColumnHeader[] { firstPlayer, SecondPlayer, Winner, PlayerScore });
+            listViewLastestGames.Location = new Point(46, 224);
+            listViewLastestGames.Margin = new Padding(3, 2, 3, 2);
+            listViewLastestGames.Name = "listViewLastestGames";
+            listViewLastestGames.Size = new Size(589, 92);
+            listViewLastestGames.TabIndex = 4;
+            listViewLastestGames.UseCompatibleStateImageBehavior = false;
+            listViewLastestGames.View = View.Details;
+            // 
+            // firstPlayer
+            // 
+            firstPlayer.Text = "First Player";
+            firstPlayer.Width = 170;
+            // 
+            // SecondPlayer
+            // 
+            SecondPlayer.Text = "SecondPlayer";
+            SecondPlayer.Width = 170;
+            // 
+            // Winner
+            // 
+            Winner.Text = "Winner";
+            Winner.Width = 150;
+            // 
+            // PlayerScore
+            // 
+            PlayerScore.Text = "Score";
+            PlayerScore.Width = 95;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Unispace", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(46, 201);
+            label2.Name = "label2";
+            label2.Size = new Size(154, 23);
+            label2.TabIndex = 3;
+            label2.Text = "Latest Games";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Unispace", 7.79999971F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(46, 186);
+            label3.Name = "label3";
+            label3.Size = new Size(483, 14);
+            label3.TabIndex = 5;
+            label3.Text = "*click on a players name to see more information about their matches";
+            // 
+            // AddNewGameButton
+            // 
+            AddNewGameButton.Location = new Point(470, 201);
+            AddNewGameButton.Margin = new Padding(3, 2, 3, 2);
+            AddNewGameButton.Name = "AddNewGameButton";
+            AddNewGameButton.Size = new Size(165, 22);
+            AddNewGameButton.TabIndex = 6;
+            AddNewGameButton.Text = "Add New Game";
+            AddNewGameButton.UseVisualStyleBackColor = true;
+            AddNewGameButton.Click += button1_Click;
+            // 
+            // MainTennisForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1413, 557);
-            Controls.Add(label1);
-            Controls.Add(listViewLastGame);
-            Controls.Add(BUTTAddNewGame);
+            BackColor = Color.Moccasin;
+            ClientSize = new Size(700, 338);
+            Controls.Add(AddNewGameButton);
+            Controls.Add(label3);
+            Controls.Add(listViewLastestGames);
+            Controls.Add(label2);
             Controls.Add(listViewRanking);
-            Controls.Add(LABLastGame);
-            Controls.Add(LAB);
-            Controls.Add(LABName);
-            MaximumSize = new Size(1431, 604);
-            MinimumSize = new Size(1431, 604);
-            Name = "FormScoreForm";
-            Text = "Score Form";
+            Controls.Add(label1);
+            Controls.Add(TennisScoreLabel);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "MainTennisForm";
+            Text = "TennisScoreApp";
+            Load += OnLoad;
             ResumeLayout(false);
             PerformLayout();
         }
-
         #endregion
 
-        private Label LABName;
-        private Label LAB;
-        private Label LABLastGame;
-        private ListView listViewRanking;
-        private ColumnHeader colRankPlayerName;
-        private ColumnHeader colRankScore;
-        private Button BUTTAddNewGame;
-        private ListView listViewLastGame;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
+        private Label TennisScoreLabel;
         private Label label1;
+        private ListView listViewRanking;
+        private ColumnHeader PlayersName;
+        private ColumnHeader Score;
+        private ListView listViewLastestGames;
+        private ColumnHeader firstPlayer;
+        private ColumnHeader SecondPlayer;
+        private Label label2;
+        private Label label3;
+        private Button AddNewGameButton;
+        private ColumnHeader Winner;
+        private ColumnHeader PlayerScore;
     }
 }

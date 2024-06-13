@@ -1,4 +1,5 @@
-﻿namespace Tennis_Score
+﻿
+namespace TennisScoreApp
 {
     partial class PlayerInfoForm
     {
@@ -28,149 +29,157 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LABPlayerName = new Label();
-            LABLosses = new Label();
-            LABVictories = new Label();
-            LABDraw = new Label();
             listViewVictories = new ListView();
-            colVictoriesCompetitior = new ColumnHeader();
-            colVictoriesScore = new ColumnHeader();
+            PlayersName = new ColumnHeader();
+            Score = new ColumnHeader();
+            labelVictories = new Label();
+            labelPlayerName = new Label();
             listViewLosses = new ListView();
-            colLossesCompetitior = new ColumnHeader();
-            colLossesScore = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+            Score1 = new ColumnHeader();
             listViewDraw = new ListView();
-            colDreawCompetitior = new ColumnHeader();
-            colDreawScore = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            Score2 = new ColumnHeader();
+            labelLoses = new Label();
+            labelDraw = new Label();
             SuspendLayout();
-            // 
-            // LABPlayerName
-            // 
-            LABPlayerName.AutoSize = true;
-            LABPlayerName.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            LABPlayerName.Location = new Point(607, 49);
-            LABPlayerName.Name = "LABPlayerName";
-            LABPlayerName.Size = new Size(231, 46);
-            LABPlayerName.TabIndex = 0;
-            LABPlayerName.Text = "Player Name ";
-            // 
-            // LABLosses
-            // 
-            LABLosses.AutoSize = true;
-            LABLosses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LABLosses.Location = new Point(688, 156);
-            LABLosses.Name = "LABLosses";
-            LABLosses.Size = new Size(67, 28);
-            LABLosses.TabIndex = 1;
-            LABLosses.Text = "Losses";
-            // 
-            // LABVictories
-            // 
-            LABVictories.AutoSize = true;
-            LABVictories.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LABVictories.Location = new Point(226, 167);
-            LABVictories.Name = "LABVictories";
-            LABVictories.Size = new Size(87, 28);
-            LABVictories.TabIndex = 2;
-            LABVictories.Text = "Victories";
-            LABVictories.Click += label1_Click;
-            // 
-            // LABDraw
-            // 
-            LABDraw.AutoSize = true;
-            LABDraw.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LABDraw.Location = new Point(1139, 156);
-            LABDraw.Name = "LABDraw";
-            LABDraw.Size = new Size(57, 28);
-            LABDraw.TabIndex = 3;
-            LABDraw.Text = "Draw";
             // 
             // listViewVictories
             // 
-            listViewVictories.Columns.AddRange(new ColumnHeader[] { colVictoriesCompetitior, colVictoriesScore });
-            listViewVictories.Location = new Point(74, 198);
+            listViewVictories.BackColor = Color.Salmon;
+            listViewVictories.Columns.AddRange(new ColumnHeader[] { PlayersName, Score });
+            listViewVictories.Location = new Point(43, 167);
             listViewVictories.Name = "listViewVictories";
-            listViewVictories.Size = new Size(406, 201);
-            listViewVictories.TabIndex = 4;
+            listViewVictories.Size = new Size(239, 207);
+            listViewVictories.TabIndex = 5;
             listViewVictories.UseCompatibleStateImageBehavior = false;
             listViewVictories.View = View.Details;
-            listViewVictories.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
-            // colVictoriesCompetitior
+            // PlayersName
             // 
-            colVictoriesCompetitior.Text = "Competitior";
+            PlayersName.Text = "Competitor";
+            PlayersName.Width = 150;
             // 
-            // colVictoriesScore
+            // Score
             // 
-            colVictoriesScore.Text = "Score";
+            Score.Text = "Score";
+            Score.Width = 80;
+            // 
+            // labelVictories
+            // 
+            labelVictories.AutoSize = true;
+            labelVictories.Font = new Font("Unispace", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            labelVictories.Location = new Point(43, 136);
+            labelVictories.Name = "labelVictories";
+            labelVictories.Size = new Size(152, 28);
+            labelVictories.TabIndex = 4;
+            labelVictories.Text = "Victrories";
+            // 
+            // labelPlayerName
+            // 
+            labelPlayerName.AutoSize = true;
+            labelPlayerName.Font = new Font("Unispace", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            labelPlayerName.Location = new Point(165, 24);
+            labelPlayerName.Name = "labelPlayerName";
+            labelPlayerName.Size = new Size(437, 72);
+            labelPlayerName.TabIndex = 3;
+            labelPlayerName.Text = "Player Name";
             // 
             // listViewLosses
             // 
-            listViewLosses.Columns.AddRange(new ColumnHeader[] { colLossesCompetitior, colLossesScore });
-            listViewLosses.Location = new Point(505, 198);
+            listViewLosses.BackColor = Color.Salmon;
+            listViewLosses.Columns.AddRange(new ColumnHeader[] { columnHeader1, Score1 });
+            listViewLosses.Location = new Point(288, 167);
             listViewLosses.Name = "listViewLosses";
-            listViewLosses.Size = new Size(406, 201);
-            listViewLosses.TabIndex = 5;
+            listViewLosses.Size = new Size(242, 207);
+            listViewLosses.TabIndex = 6;
             listViewLosses.UseCompatibleStateImageBehavior = false;
             listViewLosses.View = View.Details;
             // 
-            // colLossesCompetitior
+            // columnHeader1
             // 
-            colLossesCompetitior.Text = "Competitior";
+            columnHeader1.Text = "Competitor";
+            columnHeader1.Width = 150;
             // 
-            // colLossesScore
+            // Score1
             // 
-            colLossesScore.Text = "Score";
+            Score1.Text = "Score";
+            Score1.Width = 85;
             // 
             // listViewDraw
             // 
-            listViewDraw.Columns.AddRange(new ColumnHeader[] { colDreawCompetitior, colDreawScore });
-            listViewDraw.Location = new Point(940, 198);
+            listViewDraw.BackColor = Color.Salmon;
+            listViewDraw.Columns.AddRange(new ColumnHeader[] { columnHeader2, Score2 });
+            listViewDraw.Location = new Point(536, 167);
             listViewDraw.Name = "listViewDraw";
-            listViewDraw.Size = new Size(406, 201);
-            listViewDraw.TabIndex = 6;
+            listViewDraw.Size = new Size(243, 207);
+            listViewDraw.TabIndex = 7;
             listViewDraw.UseCompatibleStateImageBehavior = false;
             listViewDraw.View = View.Details;
             // 
-            // colDreawCompetitior
+            // columnHeader2
             // 
-            colDreawCompetitior.Text = "Competitior";
+            columnHeader2.Text = "Competitor";
+            columnHeader2.Width = 150;
             // 
-            // colDreawScore
+            // Score2
             // 
-            colDreawScore.Text = "Score";
+            Score2.Text = "Score";
+            Score2.Width = 85;
+            // 
+            // labelLoses
+            // 
+            labelLoses.AutoSize = true;
+            labelLoses.Font = new Font("Unispace", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            labelLoses.Location = new Point(288, 136);
+            labelLoses.Name = "labelLoses";
+            labelLoses.Size = new Size(96, 28);
+            labelLoses.TabIndex = 8;
+            labelLoses.Text = "Losses";
+            // 
+            // labelDraw
+            // 
+            labelDraw.AutoSize = true;
+            labelDraw.Font = new Font("Unispace", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDraw.Location = new Point(536, 136);
+            labelDraw.Name = "labelDraw";
+            labelDraw.Size = new Size(68, 28);
+            labelDraw.TabIndex = 9;
+            labelDraw.Text = "Draw";
             // 
             // PlayerInfoForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1413, 557);
+            BackColor = Color.Wheat;
+            ClientSize = new Size(800, 450);
+            Controls.Add(labelDraw);
+            Controls.Add(labelLoses);
             Controls.Add(listViewDraw);
             Controls.Add(listViewLosses);
             Controls.Add(listViewVictories);
-            Controls.Add(LABDraw);
-            Controls.Add(LABVictories);
-            Controls.Add(LABLosses);
-            Controls.Add(LABPlayerName);
+            Controls.Add(labelVictories);
+            Controls.Add(labelPlayerName);
             Name = "PlayerInfoForm";
-            Text = "PlayerInfoForm";
+            Text = "Form3";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label LABPlayerName;
-        private Label LABLosses;
-        private Label LABVictories;
-        private Label LABDraw;
         private ListView listViewVictories;
+        private ColumnHeader PlayersName;
+        private Label labelVictories;
+        private Label labelPlayerName;
         private ListView listViewLosses;
+        private ColumnHeader columnHeader1;
         private ListView listViewDraw;
-        private ColumnHeader colVictoriesCompetitior;
-        private ColumnHeader colVictoriesScore;
-        private ColumnHeader colLossesCompetitior;
-        private ColumnHeader colLossesScore;
-        private ColumnHeader colDreawCompetitior;
-        private ColumnHeader colDreawScore;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader Score;
+        private ColumnHeader Score1;
+        private Label labelLoses;
+        private Label labelDraw;
+        private ColumnHeader Score2;
     }
 }
