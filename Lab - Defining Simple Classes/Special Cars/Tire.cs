@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Special_Cars
 {
-    public class Tire
+    public class TireSet
     {
-        public int year;
-        public double pressure;
+        public List<(int Year, double Pressure)> Tires { get; set; }
 
-        public int Year { get; set; }
-        public double Pressure { get; set; }
-
-        public Tire(int year, double pressure)
+        public TireSet(List<(int Year, double Pressure)> tires)
         {
-            this.Year = year;
-            this.Pressure = pressure;
+             Tires = tires;
+        }
+
+        public double GetPressureSum()
+        {
+            return Tires.Sum(t => t.Pressure);
         }
     }
 }

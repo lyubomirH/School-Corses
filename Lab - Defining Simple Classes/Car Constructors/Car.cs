@@ -43,22 +43,23 @@ namespace Car_Constructors
             this.FuelQuantity = fuelQuantity;
             this.FuelConsumption = fuelConsumption;
 
-        } 
-        //public void Drive(double distans)
-        //{
-        //    double fuelNeededForDistans = distans * fuelConsumption;
-        //    if (fuelQuantity - fuelNeededForDistans > 0)
-        //    {
-        //        double leftFuel = fuelQuantity - fuelNeededForDistans;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Not enough fuel to perform this trip!");
-        //    }
-        //}
-        //public string WhoAmI()
-        //{
-        //    return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuel: {this.FuelQuantity:F2}L";
-        //}
+        }
+        /*public void Drive(double distans)
+        {
+            double fuelNeededForDistans = distans * fuelConsumption;
+            if (fuelQuantity - fuelNeededForDistans > 0)
+            {
+                double leftFuel = fuelQuantity - fuelNeededForDistans;
+            }
+            else
+            {
+                Console.WriteLine("Not enough fuel to perform this trip!");
+            }
+        }
+        public string WhoAmI()
+        {
+            return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuel: {this.FuelQuantity:F2}L";
+        }
+        */
     }
 }

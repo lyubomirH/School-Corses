@@ -18,19 +18,12 @@ namespace Car_Constructors
         private Engine engine;
         private Tire[] tires;
 
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public int Year { get; set; }
-        public double FuelQuantity { get; set; }
-        public Engine Engine { get; set; }
-        public Tire[] Tires { get; set; }
-
         public double FuelConsumption
         {
             get { return this.fuelConsumption; }
             set { this.fuelConsumption = value; }
         }
-        
+
         public Car()
         {
             this.Make = "VW";
@@ -54,10 +47,18 @@ namespace Car_Constructors
         }
         public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption,
             Engine engine, Tire[] tires)
-            :this(make, model, year, fuelQuantity, fuelConsumption)
+            : this(make, model, year, fuelQuantity, fuelConsumption)
         {
             this.Engine = engine;
             this.Tires = tires;
         }
+
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Year { get; set; }
+        public double FuelQuantity { get; set; }
+        public Engine Engine { get; set; }
+        public Tire[] Tires { get; set; }
+
     }
 }

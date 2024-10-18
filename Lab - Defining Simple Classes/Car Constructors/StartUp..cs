@@ -13,9 +13,9 @@
             Car firstCar = new Car();
             Car secondCar = new Car(make, model, year);
             Car thirdCar = new Car(make, model, year, fuelQuantity, fuelConsumption);
-            //Console.WriteLine($"{firstCar.make} {firstCar.model} {firstCar.year} {firstCar.fuelConsumption} {firstCar.fuelQuantity}");
-            //Console.WriteLine($"{secondCar.make} {secondCar.model} {secondCar.year} {secondCar.fuelConsumption} {secondCar.fuelQuantity}");
-            //Console.WriteLine($"{thirdCar.make} {thirdCar.model} {thirdCar.year} {thirdCar.fuelConsumption} {thirdCar.fuelQuantity}");
+            Console.WriteLine($"{firstCar.make} {firstCar.model} {firstCar.year} {firstCar.fuelConsumption} {firstCar.fuelQuantity}");
+            Console.WriteLine($"{secondCar.make} {secondCar.model} {secondCar.year} {secondCar.fuelConsumption} {secondCar.fuelQuantity}");
+            Console.WriteLine($"{thirdCar.make} {thirdCar.model} {thirdCar.year} {thirdCar.fuelConsumption} {thirdCar.fuelQuantity}");
         }
     }
 }
