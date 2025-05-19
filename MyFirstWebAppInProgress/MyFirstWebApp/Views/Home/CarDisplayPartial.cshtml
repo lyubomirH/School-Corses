@@ -1,0 +1,93 @@
+﻿@using MyFirstWebApp.Core.DTOs
+@model CarModel
+<form asp-action="Add" asp-controller="Home" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="model-search-content">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-2 col-sm-12">
+                            <div class="single-model-search">
+                                <h2>select year</h2>
+                                <div class="model-select-icon">
+                                    <select asp-for="Year" class="form-control">
+
+                                        <option disabled selected value=""><bold>Select Year</bold></option>
+                                        @for (int i = 1990; i < DateTime.Now.Year; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+
+
+                                    </select><!-- /.select-->
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                            <div class="single-model-search">
+                                <h2>body style</h2>
+                                <div class="model-select-icon">
+                                    <select asp-for="BodyStyle" class="form-control">
+                                        <option disabled selected value=""><bold>Select Body Style</bold></option><!-- /.option-->
+                                        @foreach (var opt in Enum.GetValues(typeof(BodyStyle)))
+                                        {
+                                            <option value="@opt">@opt</option>
+                                        }
+                                    </select><!-- /.select-->
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-2 col-sm-12">
+                            <div class="single-model-search">
+                                <h2>select make</h2>
+                                <div class="model-select">
+                                    <input asp-for="Make" placeholder="Make..." class="form-control" />
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                            <div class="single-model-search">
+                                <h2>car condition</h2>
+                                <div class="model-select-icon">
+                                    <select asp-for="Condition" class="form-control">
+
+                                        @foreach (var item in Enum.GetValues(typeof(Condition)))
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+
+                                    </select><!-- /.select-->
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-2 col-sm-12">
+                            <div class="single-model-search">
+                                <h2>Select model </h2>
+                                <div class="model-select">
+                                    <input asp-for="Model" placeholder="Model..." class="form-control" />
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                            <div class="single-model-search">
+                                <h2>select price</h2>
+                                <div class="model-select">
+                                    <input asp-for="Price" placeholder="Price..." class="form-control" />
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-2 col-sm-12">
+
+                            <div class="single-model-search text-center">
+                                <h2>Provide image</h2>
+                                <div class="model-select">
+                                    <input asp-for="ImageUrl" placeholder="Image..." class="form-control" />
+                                </div><!-- /.model-select-icon -->
+                            </div>
+                            <div class="single-model-search text-center">
+                                <button type="submit" class="custom-btn model-search-btn">
+                                    Add car
+                                </button>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>

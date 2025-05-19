@@ -13,16 +13,16 @@ namespace NeedForSpeed.classes
         {
             HorsePower = horsePower;
             Fuel = fuel;
-            FuelConsimption = 1.25;
+            FuelConsumption = 1.25;
 
         }
         public int HorsePower { get; set; }
         public double Fuel { get; set; }
-        public virtual double FuelConsimption { get; set; }
+        public virtual double FuelConsumption { get; set; }
 
         public virtual void Drive(double kilometers)
         {
-            Fuel -= kilometers * FuelConsimption;
+            Fuel -= kilometers * FuelConsumption;
         }
     }
 }
